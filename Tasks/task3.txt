@@ -1,0 +1,104 @@
+//Mean Squared Error
+def mse(actual, predicted):
+    total_error = 0
+    for i in range(len(actual)):
+        error = (actual[i] - predicted[i]) ** 2
+        total_error += error
+    return total_error / len(actual)
+
+actual = [3, -0.5, 2, 7]
+predicted = [2.5, 0.0, 2, 8]
+print("MSE:", mse(actual, predicted))
+    
+
+//Root Mean Squared Error
+
+def square_root(value):
+    return value ** 0.5
+
+def rmse(actual, predicted):
+    return square_root(mse(actual, predicted))
+
+print("RMSE:", rmse(actual, predicted))
+
+
+//Cosine Similarity
+
+def cosine_similarity(vec1, vec2):
+    dot_product = 0
+    magnitude_vec1 = 0
+    magnitude_vec2 = 0
+
+    for i in range(len(vec1)):
+        dot_product += vec1[i] * vec2[i]
+        magnitude_vec1 += vec1[i] ** 2
+        magnitude_vec2 += vec2[i] ** 2
+
+    magnitude_vec1 = magnitude_vec1 ** 0.5
+    magnitude_vec2 = magnitude_vec2 ** 0.5
+
+    return dot_product / (magnitude_vec1 * magnitude_vec2)
+
+vec1 = [1, 2, 3]
+vec2 = [4, 5, 6]
+print("Cosine Similarity:", cosine_similarity(vec1, vec2))
+
+
+//Linear Regression
+
+def linear_regression(x, y):
+    n = len(x)
+    sum_x = sum_y = sum_xy = sum_x_squared = 0
+
+    for i in range(n):
+        sum_x += x[i]
+        sum_y += y[i]
+
+    mean_x = sum_x / n
+    mean_y = sum_y / n
+
+    for i in range(n):
+        sum_xy += (x[i] - mean_x) * (y[i] - mean_y)
+        sum_x_squared += (x[i] - mean_x) ** 2
+
+    m = sum_xy / sum_x_squared
+    c = mean_y - m * mean_x
+
+    return m, c
+
+x = [1, 2, 3, 4, 5]
+y = [2, 3, 5, 6, 8]
+m, c = linear_regression(x, y)
+print(f"Linear Regression Line: y = {m:.2f}x + {c:.2f}")
+
+
+//Softmax Function
+
+def exponential(value):
+    e = 2.71828
+    result = 1
+    for i in range(20):
+        result += (value ** (i + 1)) / factorial(i + 1)
+    return result
+
+def factorial(n):
+    fact = 1
+    for i in range(1, n+1):
+        fact *= i
+    return fact
+
+def softmax(values):
+    exp_values = []
+    for value in values:
+        exp_values.append(exponential(value))
+
+    total = sum(exp_values)
+
+    softmax_values = []
+    for exp_value in exp_values:
+        softmax_values.append(exp_value / total)
+
+    return softmax_values
+
+values = [2.0, 1.0, 0.1]
+print("Softmax:", softmax(values))
