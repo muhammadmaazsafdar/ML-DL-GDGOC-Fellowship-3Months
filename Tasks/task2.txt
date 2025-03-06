@@ -1,0 +1,81 @@
+my_list = [1, 2, 3, 4, 5, 6, 7, 8];
+
+//Mean
+
+def calculate_mean(my_list):
+    Sum= sum(my_list)
+    Length= len(my_list)
+    mean = Sum/ Length
+    return mean
+
+print("Mean" ,calculate_mean(my_list))
+
+//Median
+
+def calculate_median(my_list):
+    n = len(my_list)
+    if n % 2 == 0:
+        median = (my_list[n//2 - 1] + my_list[n//2]) / 2
+    else:
+        median = my_list[n//2]
+    return median
+
+print("Median", calculate_median(my_list))
+
+//Mode
+
+def calculate_mode(my_list):
+    frequency = {}
+    for num in my_list:
+        if num in frequency:
+            frequency[num] += 1
+        else:
+            frequency[num] = 1
+
+    max_frequency = max(frequency.values())
+    modes = [num for num, freq in frequency.items() if freq == max_frequency]
+
+    if len(modes) == len(my_list):
+        return "No mode"
+    return modes
+
+print("Mode", calculate_mode(my_list))
+
+//Variance
+
+def calculate_variance(my_list):
+    mean = calculate_mean(my_list)
+    squared_differences = [(i - mean) ** 2 for i in my_list]
+    variance = sum(squared_differences) / len(my_list)
+    return variance
+
+print("Var",calculate_variance(my_list))
+
+//Standard Deviation
+
+def calculate_standard_deviation(my_list):
+    variance = calculate_variance(my_list)
+    standard_deviation = variance ** 0.5
+    return standard_deviation
+
+print("S D", calculate_standard_deviation(my_list))
+
+//Euclidean Distance
+
+def calculate_euclidean_distance(a, b):
+    if len(a) != len(b):
+        raise ValueError("Lists must have the same length.")
+    
+    distance = sum((a[i] - b[i]) ** 2 for i in range(len(a)))
+    return distance ** 0.5
+
+print("Euclidean Distance :", calculate_euclidean_distance([1,2], [4,6]))
+
+//Sigmoid
+
+def sigmoid(x):
+    e = 2.71828
+    return 1 / (1 + (e ** -x))
+
+# Example usage
+print(sigmoid(-5))
