@@ -1,6 +1,6 @@
-# Week 1 Mini Project - Python Fundamentals
 
-# Question 1: User Data Collector
+
+# User Data Collector
 def collect_user_data():
     user_data = {}
     user_data["name"] = input("Enter your name: ")
@@ -16,7 +16,7 @@ def collect_user_data():
     else:
         print("Invalid email! Please enter a valid email.")
 
-# Question 2: Even or Odd?
+# Even or Odd?
 def is_even(number):
     return number % 2 == 0
 
@@ -27,7 +27,7 @@ def check_even_odd():
     else:
         print(f"{num} is Odd.")
 
-# Question 3: Temperature Converter
+# Temperature Converter
 def convert_temperature(temp, scale):
     if scale == "C":
         return (temp * 9/5) + 32  # Celsius to Fahrenheit
@@ -46,7 +46,7 @@ def temp_conversion():
     else:
         print("Invalid scale entered!")
 
-# Question 4: Finding Min & Max
+# Finding Min & Max
 def find_max_min(numbers_list):
     return max(numbers_list), min(numbers_list)
 
@@ -61,7 +61,7 @@ def min_max_numbers():
     print(f"Maximum Number: {max_value}")
     print(f"Minimum Number: {min_value}")
 
-# Question 5: Student Data Manager
+# Student Data Manager
 def student_data_manager():
     students = []
     
@@ -77,7 +77,7 @@ def student_data_manager():
     print("\nStudent Data Dictionary:")
     print(student_dict)
 
-# Question 6: Inventory Management System
+# Inventory Management System
 def update_inventory(inventory_dict, item, quantity):
     if item in inventory_dict:
         inventory_dict[item] = max(0, inventory_dict[item] + quantity)
@@ -104,7 +104,6 @@ def inventory_manager():
     print("\nUpdated Inventory:")
     print(inventory)
 
-# Main Function to Run All Tasks
 def main():
     collect_user_data()
     check_even_odd()
@@ -113,6 +112,5 @@ def main():
     student_data_manager()
     inventory_manager()
 
-# Run the main function
 if __name__ == "__main__":
     main()
