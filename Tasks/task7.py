@@ -23,13 +23,11 @@ def view_tasks():
             print(f"{idx}. {task}")
         print()
 
-
 def add_task(task):
     tasks = read_tasks()
     tasks.append(task)
     write_tasks(tasks)
     print("\nTask added successfully.\n")
-
 
 def remove_task(task_number):
     tasks = read_tasks()
@@ -40,7 +38,6 @@ def remove_task(task_number):
     except IndexError:
         print("\nInvalid task number.\n")
 
-
 def update_task(task_number, new_task):
     tasks = read_tasks()
     try:
@@ -50,8 +47,6 @@ def update_task(task_number, new_task):
     except IndexError:
         print("\nInvalid task number.\n")
 
-
-# User Interface - CLI Menu
 def menu():
     while True:
         print("\n=== Task Manager ===")
@@ -90,7 +85,6 @@ def menu():
             break
         else:
             print("\nInvalid choice. Please select from 1 to 5.\n")
-
 
 if __name__ == "__main__":
     menu()
